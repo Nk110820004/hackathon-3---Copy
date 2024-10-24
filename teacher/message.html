@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher-Parent Messaging Portal</title>
+    <link rel="stylesheet" href="message.css">
+</head>
+<body>
+    <div class="navbar_ctrl">
+        <a href="homework.html" class="logo">LOGO</a>
+        <ul class="navbar">
+            <li id="home"><a href="attendance.html">attendance</a></li>
+            <li><a href="marks.html">marks</a></li>
+            <li><a href="message.html">message</a></li>
+
+        </ul>
+        <!-- <div class="nav-right">
+            <a href="#"><i class="fa-duotone fa-solid fa-user"></i></a>
+        </div> -->
+    </div>
+    <div class="container">
+        <h1>Teacher-Parent Messaging Portal</h1>
+        <div id="messageList" class="message-list"></div>
+        <form id="messageForm">
+            <input type="text" id="teacherName" placeholder="Your Name" required>
+            <textarea id="message" placeholder="Type your message here..." required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        const teacherName = document.getElementById('teacherName').value;
+        const messageContent = document.getElementById('message').value;
+    
+        // Create a new message element
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', 'teacher');
+        messageDiv.textContent = `${teacherName}: ${messageContent}`;
+    
+        // Append the new message to the message list
+        document.getElementById('messageList').appendChild(messageDiv);
+    
+        // Clear the input fields
+        document.getElementById('messageForm').reset();
+    });
+    </script>
+</body>
+</html>

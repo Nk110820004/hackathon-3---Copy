@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents' Portal Messaging</title>
+    <link rel="stylesheet" href="pmsg.css">
+</head>
+<body>
+    <div class="navbar_ctrl">
+        <a href="parent.html" class="logo">LOGO</a>
+        <ul class="navbar">
+            <li id="home"><a href="grades.html">grades</a></li>
+            <li><a href="pmsg.html">message</a></li>
+            <li><a href="pattendance.html">attendance</a></li>
+        </ul>
+        <!-- <div class="nav-right">
+            <a href="#"><i class="fa-duotone fa-solid fa-user"></i></a>
+        </div> -->
+    </div>
+    <header>
+        <h1>Parents' Portal Messaging</h1>
+        <p>Communicate with Teachers</p>
+    </header>
+
+    <main>
+        <section id="messageSection">
+            <h2>Messages</h2>
+            <div id="messages">
+                <!-- Messages will be loaded here -->
+            </div>
+            <form id="messageForm">
+                <label for="messageInput">Send a message:</label>
+                <textarea id="messageInput" rows="4" placeholder="Type your message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="pmsg.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child's Results</title>
+    <link rel="stylesheet" href="grades.css">
+</head>
+<body>
+    <div class="navbar_ctrl">
+        <a href="parent.html" class="logo">LOGO</a>
+        <ul class="navbar">
+            <li id="home"><a href="grades.html">grades</a></li>
+            <li><a href="pmsg.html">message</a></li>
+            <li><a href="pattendance.html">attendance</a></li>
+        </ul>
+        <!-- <div class="nav-right">
+            <a href="#"><i class="fa-duotone fa-solid fa-user"></i></a>
+        </div> -->
+    </div>
+    <header>
+        <h1>Child's Results</h1>
+        <p>View and print your child's grades assigned by the teacher.</p>
+    </header>
+
+    <main>
+        <section id="resultSection">
+            <h2>Grades Overview</h2>
+            <table id="gradesTable">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Grades will be dynamically loaded here -->
+                </tbody>
+            </table>
+            <button id="printButton">Print Results</button>
+        </section>
+    </main>
+
+    <script src="grades.js"></script>
+</body>
+</html>

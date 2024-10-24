@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Entry</title>
+    <link rel="stylesheet" href="marks.css">
+</head>
+<body>
+    <div class="navbar_ctrl">
+        <a href="homework.html" class="logo">LOGO</a>
+        <ul class="navbar">
+            <li id="home"><a href="attendance.html">attendance</a></li>
+            <li><a href="marks.html">marks</a></li>
+            <li><a href="message.html">message</a></li>
+
+        </ul>
+        <!-- <div class="nav-right">
+            <a href="#"><i class="fa-duotone fa-solid fa-user"></i></a>
+        </div> -->
+    </div>
+    <div class="container">
+        <h1>Teacher: Enter Student Marks</h1>
+        <form id="marksForm">
+            <label for="studentSelect">Select Student:</label>
+            <select id="studentSelect" required>
+                <option value="">-- Select a Student --</option>
+                <option value="student 1">student 1</option>
+                <option value="student 2">student 2</option>
+                <option value="student 3">student 3</option>
+                <option value="student 4">student 4</option>
+                <option value="student 5">student 5</option>
+                <option value="student 6">student 6</option>
+                <option value="student 7">student 7</option>
+                <option value="student 8">student 8</option>
+                <option value="student 9">student 9</option>
+            </select>
+            <label for="testSelect">Select Test:</label>
+            <select id="testSelect" required>
+                <option value="">-- Select a Test --</option>
+                <option value="Maths midterm">Maths midterm</option>
+                <option value="science midterm">science midterm</option>
+                <option value="science final">science final</option>
+            </select>
+
+            <label for="marks">Marks (out of 80):</label>
+            <input type="number" id="marks" min="0" max="80" required>
+
+            <button type="submit">Submit</button>
+
+        <h2>Submitted Marks</h2>
+        <ul id="marksList"></ul>
+    </div>
+
+    <script>document.addEventListener('DOMContentLoaded', loadStudents);
+
+        function loadStudents() {
+            fetch('get_students.php')
+                .then(response => response.json())
+                .then(data => {
+                    const studentSelect = document.getElementById('studentSelect');
+                    studentSelect.innerHTML = '<option value="">-- Select a Student --</option>';
+        
+                    data.forEach(student => {
+                        const option = document.createElement('option');
+                        option.value = student.name;
+                        option.textContent = student.name;
+                        studentSelect.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        
+        document.getElementById('marksForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+        
+            const studentName = document.getElementById('studentSelect').value;
+            const marks = document.getElementById('marks').value;
+        
+            if (studentName) {
+                const marksList = document.getElementById('marksList');
+                const listItem = document.createElement('li');
+                listItem.textContent = `${studentNam+e}: ${marks}`;
+                marksList.appendChild(listItem);
+        
+                // Clear the input fields
+                document.getElementById('marksForm').reset();
+            }
+        });
+        
+        
+        document.getElementById('marksForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+        
+            const studentName = document.getElementById('studentSelect').value;
+            const marks = document.getElementById('marks').value;
+        
+            if (studentName) {
+                const marksList = document.getElementById('marksList');
+                const listItem = document.createElement('li');
+                listItem.textContent = `${studentName}: ${marks}`;
+                marksList.appendChild(listItem);
+        
+                // Clear the input fields
+                document.getElementById('marksForm').reset();
+            }
+        });
+        </script>
+</body>
+</html>
